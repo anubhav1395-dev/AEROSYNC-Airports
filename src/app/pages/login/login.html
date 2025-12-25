@@ -1,0 +1,49 @@
+<div class="viewport-wrapper">
+  <section class="visual-panel">
+    <div class="overlay"></div>
+    <div class="brand-box">
+      <h2 class="logo">AERO<span>SYNC</span></h2>
+      <div class="promo-text">
+        <h1>Travel, <br>Simplified.</h1>
+        <p>Your journey begins with a single click. Login to access your account</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="form-panel">
+    <div class="login-container">
+      <header>
+        <h2>Welcome Back</h2>
+        <p>Enter your credentials to access your account.</p>
+      </header>
+
+      <form (submit)="handleAuth($event)">
+        <div class="input-group">
+          <label>Email Address</label>
+          <input type="email" [(ngModel)]="email" name="email" placeholder="Enter your E-mail" required>
+        </div>
+
+        <div class="input-group">
+          <label>Password</label>
+          <input type="password" [(ngModel)]="password" name="password" placeholder="Enter your Password" required>
+        </div>
+
+        <button type="submit" class="main-btn">Sign In</button>
+      </form>
+
+      <div class="divider">
+        <span>OR CONNECT WITH</span>
+      </div>
+
+      <div class="social-grid">
+        <button type="button" class="social-pill">Google</button>
+        <button type="button" class="social-pill">Apple</button>
+      </div>
+
+      <footer>
+        <p>New here? <a routerLink="/signup">Create account</a></p>
+        <a routerLink="/landing" class="guest-link">Continue as Guest</a>
+      </footer>
+    </div>
+  </section>
+</div>

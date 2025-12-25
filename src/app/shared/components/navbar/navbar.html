@@ -1,0 +1,28 @@
+<nav class="onyx-navbar" [class.scrolled]="isScrolled">
+  <div class="nav-container">
+    <div class="nav-logo" routerLink="/landing">
+      AERO<span class="gradient-text">SYNC</span>
+    </div>
+
+    <div class="nav-menu">
+      <a routerLink="/landing" routerLinkActive="active-link" class="nav-item">Flights</a>
+      <a routerLink="/hotels" routerLinkActive="active-link" class="nav-item">Hotels</a>
+      <a routerLink="/offers" routerLinkActive="active-link" class="nav-item">Offers</a>
+    </div>
+
+    <div class="nav-actions">
+      @if (!isLoggedIn) {
+        <button class="support-btn" (click)="setGuestMode()">Guest Access</button>
+        
+        <button class="login-pill" routerLink="/login">Login</button>
+      } @else {
+        <div class="user-profile">
+          <span class="user-name">Captain Admin</span>
+          <button class="logout-icon" (click)="logout()">
+            <span class="material-icons">logout</span>
+          </button>
+        </div>
+      }
+    </div>
+  </div>
+</nav>

@@ -1,0 +1,30 @@
+<div class="glass-card">
+  <div class="card-image">
+    <img [src]="flight.img" [alt]="flight.destination">
+    <div class="status-badge-overlay">
+      <app-badge [text]="flight.statusText" [variant]="flight.status"></app-badge>
+    </div>
+  </div>
+
+  <div class="card-content">
+    <div class="flight-main">
+      <span class="flight-id">{{ flight.id }}</span>
+      <h2>{{ flight.destination }}</h2>
+    </div>
+
+    <div class="flight-meta">
+      <div class="meta-box">
+        <small>DEPARTURE</small>
+        <p>{{ flight.time }}</p>
+      </div>
+      <div class="meta-box">
+        <small>GATE</small>
+        <p>{{ flight.gate }}</p>
+      </div>
+    </div>
+
+    <div class="card-footer">
+      <app-button variant="secondary" (onClick)="viewDetails()">Details</app-button>
+    </div>
+  </div>
+</div>

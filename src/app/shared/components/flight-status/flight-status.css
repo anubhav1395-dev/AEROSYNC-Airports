@@ -1,0 +1,55 @@
+.glass-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.glass-card:hover {
+  transform: translateY(-8px);
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.card-image {
+  position: relative;
+  height: 160px;
+}
+
+.card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.status-badge-overlay {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.card-content {
+  padding: 1.5rem;
+}
+
+.flight-id {
+  color: #60a5fa;
+  font-weight: 700;
+  font-size: 0.8rem;
+}
+
+.flight-meta {
+  display: flex;
+  justify-content: space-between;
+  margin: 1.5rem 0;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.meta-box small {
+  display: block;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.65rem;
+  margin-bottom: 4px;
+}

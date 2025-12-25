@@ -1,0 +1,20 @@
+<div class="select-group">
+  <label *ngIf="label" class="select-label">{{ label }}</label>
+  
+  <div class="glass-select-wrapper">
+    <select 
+      [(ngModel)]="value" 
+      (ngModelChange)="onValueChange($event)"
+      class="glass-select">
+      
+      <option value="" disabled selected>{{ placeholder }}</option>
+      
+      @for (opt of options; track opt.value) {
+        <option [ngValue]="opt.value">
+          {{ opt.label }}
+        </option>
+      }
+    </select>
+    <span class="chevron">▼</span>
+  </div>
+</div>

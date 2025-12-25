@@ -1,0 +1,18 @@
+<div class="modal-overlay" *ngIf="isOpen" (click)="closeModal()">
+  <div class="modal-container" [ngClass]="size" (click)="stopProp($event)">
+    
+    <div class="modal-header">
+      <h3>{{ title }}</h3>
+      <button class="close-x" (click)="closeModal()">✕</button>
+    </div>
+
+    <div class="modal-body">
+      <ng-content select="[body]"></ng-content>
+    </div>
+     
+    <div class="modal-footer" *ngIf="hasFooter">
+      <ng-content select="[footer]"></ng-content>
+    </div>
+
+  </div>
+</div>

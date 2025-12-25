@@ -1,0 +1,20 @@
+<aside class="glass-sidebar" [class.collapsed]="collapsed">
+  <div class="sidebar-header" *ngIf="!collapsed">
+    <small class="text-muted">{{ title | uppercase }}</small>
+  </div>
+
+  <nav class="sidebar-nav">
+    @for (item of menuItems; track item.route) {
+      <a [routerLink]="item.route" 
+         routerLinkActive="active" 
+         class="nav-item">
+        <span class="nav-icon">{{ item.icon }}</span>
+        <span class="nav-label" *ngIf="!collapsed">{{ item.label }}</span>
+      </a>
+    }
+  </nav>
+
+  <div class="sidebar-footer">
+    <ng-content select="[footer]"></ng-content>
+  </div>
+</aside>

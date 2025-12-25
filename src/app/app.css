@@ -1,0 +1,42 @@
+.app-shell {
+  min-height: 100vh;
+  background: #0f172a; /* Deep dark blue background */
+  position: relative;
+  overflow: hidden;
+  color: white;
+}
+
+.main-content {
+  position: relative;
+  z-index: 10;
+}
+
+/* Moving Background Blobs for the Glass Effect */
+.background-blobs {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.blob {
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  background: linear-gradient(135deg, #3b82f6 0%, #9333ea 100%);
+  filter: blur(80px);
+  border-radius: 50%;
+  opacity: 0.4;
+  animation: move 20s infinite alternate;
+}
+
+.blob-1 { top: -100px; right: -100px; }
+.blob-2 { bottom: -100px; left: -100px; background: #06b6d4; }
+
+@keyframes move {
+  from { transform: translate(0, 0) scale(1); }
+  to { transform: translate(100px, 50px) scale(1.1); }
+}

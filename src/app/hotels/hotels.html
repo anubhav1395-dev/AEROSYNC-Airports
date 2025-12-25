@@ -1,0 +1,70 @@
+<div class="onyx-viewport">
+  <section class="onyx-hero">
+    <div class="hero-bg-overlay"></div>
+    <div class="hero-content">
+      <h1 class="hero-title">Exclusive <span class="accent-glow">Sanctuaries</span></h1>
+      <p class="hero-subtitle">Curated luxury for the discerning traveler.</p>
+      
+      <div class="search-engine-glass">
+        <div class="search-grid">
+          <div class="search-group flex-2">
+            <label>DESTINATION</label>
+            <input type="text" 
+                   placeholder="Search city or resort..." 
+                   [(ngModel)]="searchTerm" 
+                   (input)="onSearchChange()"
+                   class="onyx-input">
+          </div>
+          <div class="search-separator"></div>
+          <div class="search-group">
+            <label>CHECK-IN</label>
+            <input type="date" class="onyx-input date-picker">
+          </div>
+          <button class="onyx-search-btn">
+            <span>Explore</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <main class="results-container">
+    <header class="results-header" *ngIf="filteredHotels.length > 0">
+      <div class="header-line"></div>
+      <span class="results-count">{{filteredHotels.length}} PROPERTIES AVAILABLE</span>
+      <div class="header-line"></div>
+    </header>
+
+    <div class="hotel-grid">
+      <article *ngFor="let hotel of filteredHotels" class="hotel-card">
+        <div class="card-visuals">
+          <img [src]="hotel.image" [alt]="hotel.name" class="hotel-img">
+          <div class="card-badges">
+            <span class="price-tag">${{hotel.price}}<small>/night</small></span>
+            <span *ngIf="hotel.rating > 4.8" class="premium-tag">ELITE</span>
+          </div>
+          <div class="img-gradient-shade"></div>
+        </div>
+
+        <div class="card-details">
+          <div class="meta-row">
+            <span class="location-text">📍 {{hotel.location}}</span>
+            <span class="rating-text">★ {{hotel.rating}}</span>
+          </div>
+          <h2 class="hotel-name-title">{{hotel.name}}</h2>
+          <div class="card-footer-actions">
+            <button class="details-link">View Gallery</button>
+            <button class="book-now-cta">Book Now</button>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <div *ngIf="filteredHotels.length === 0" class="empty-state">
+      <div class="empty-visual">🌆</div>
+      <h3>No sanctuaries found</h3>
+      <p>We couldn't find anything matching "{{searchTerm}}"</p>
+      <button class="reset-btn" (click)="searchTerm=''; onSearchChange()">Clear Search</button>
+    </div>
+  </main>
+</div>

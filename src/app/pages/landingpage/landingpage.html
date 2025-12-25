@@ -1,0 +1,103 @@
+<div class="landing-wrapper">
+  <div class="weather-widget glass-pill">
+    <span class="weather-icon">{{ weather.icon }}</span>
+    <div class="weather-info">
+      <span class="city">{{ weather.city }}</span>
+      <span class="temp">{{ weather.temp }} — {{ weather.condition }}</span>
+    </div>
+  </div>
+
+  <section class="hero-header">
+    <app-badge text="Live Airport Terminal" variant="success" [showDot]="true"></app-badge>
+    <h1 class="main-title">Fly Beyond <span class="gradient-text">Boundaries</span></h1>
+    
+    <div class="booking-container">
+      <div class="super-glass">
+        <div class="trip-type-selector">
+          <button [class.active]="tripType === 'round'" (click)="setTripType('round')">Round Trip</button>
+          <button [class.active]="tripType === 'single'" (click)="setTripType('single')">One Way</button>
+        </div>
+
+        <div class="input-row">
+          <div class="field">
+            <label>FROM</label>
+            <input type="text" [(ngModel)]="fromLocation" placeholder="Origin City">
+          </div>
+
+          <div class="field">
+            <label>TO</label>
+            <input type="text" [(ngModel)]="toLocation" (input)="updateWeather()" placeholder="Destination">
+          </div>
+
+          <div class="field">
+            <label>DEPARTURE</label>
+            <input type="date" class="date-input">
+          </div>
+
+          @if (tripType === 'round') {
+            <div class="field animate-fade">
+              <label>RETURN</label>
+              <input type="date" class="date-input">
+            </div>
+          }
+
+          <button class="search-trigger" (click)="handleSearch(toLocation)">
+            <span class="icon">✈️</span> Find Flights
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="results-section" id="flights-area">
+    <div class="flights-grid">
+      @for (f of filteredFlights; track f.id) {
+        <app-flight-card [flight]="f" (onDetails)="openDetails($event)"></app-flight-card>
+      }
+    </div>
+  </section>
+<section class="why-us" style="text-align: center;">
+  <h2 class="section-title" style="color: #000; margin-bottom: 2rem; width: 100%; font-size:30px;">Why AeroSync?</h2>
+  
+  <div class="features-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+    <div class="feature-card glass-panel">
+      <span class="icon">🛡️</span>
+      <h3>Secure Booking</h3>
+      <p>Protected by military-grade encryption.</p>
+    </div>
+
+    <div class="feature-card glass-panel">
+      <span class="icon">⚡</span>
+      <h3>Real-time Updates</h3>
+      <p>Instant status straight to your phone.</p>
+    </div>
+
+    <div class="feature-card glass-panel">
+      <span class="icon">🌐</span>
+      <h3>Global Support</h3>
+      <p>24/7 assistance in over 30 languages.</p>
+    </div>
+  </div>
+</section>
+
+
+
+  <footer class="site-terminator">
+    <div class="footer-content-grid">
+      <div class="footer-brand-area">
+        <h2 class="logo-text">AERO<span class="gradient-text">-SYNC</span></h2>
+        <p>The final destination for seamless global travel.</p>
+      </div>
+      <div class="footer-nav-hub">
+        <div class="nav-group">
+          <h4>Services</h4>
+          <a href="#">Flight Status</a>
+          <a href="#">VIP Lounge</a>
+        </div>
+      </div>
+    </div>
+    <div class="site-bottom-bar">
+      <span>EST. 2025 — TERMINAL A1 | ALL SYSTEMS OPERATIONAL</span>
+    </div>
+  </footer>
+</div>
