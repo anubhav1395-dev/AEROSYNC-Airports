@@ -152,3 +152,16 @@
   color: #3b82f6 !important;
   text-shadow: 0 0 8px rgba(59, 130, 246, 0.4);
 }
+@media (max-width: 768px) {
+  .nav-menu {
+    display: none; /* We'll hide links on mobile for now */
+  }
+  
+  .nav-container {
+    padding: 0 15px;
+  }
+
+  .support-btn {
+    display: none; /* Hide secondary buttons to keep it clean */
+  }
+}

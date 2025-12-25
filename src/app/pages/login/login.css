@@ -109,3 +109,37 @@ footer { margin-top: 40px; text-align: center; }
 footer a { color: #3b82f6; text-decoration: none; font-weight: 700; }
 .guest-link { display: block; margin-top: 15px; opacity: 0.5; font-size: 0.85rem; }
 
+.split-viewport {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: row; /* Desktop default */
+}
+
+@media (max-width: 1024px) {
+  .split-viewport {
+    flex-direction: column; /* Stack vertically on tablets/phones */
+  }
+
+  .visual-panel {
+    display: none; /* Hide the big image on mobile to save space */
+  }
+  
+  /* OR, if you want to keep the brand info: */
+  /*
+  .visual-panel {
+    height: 30vh;
+    width: 100%;
+  }
+  */
+
+  .form-panel {
+    width: 100% !important;
+    padding: 20px;
+  }
+
+  .auth-box {
+    width: 100%;
+    max-width: 400px; /* Keep the form neat */
+    margin: 0 auto;
+  }
+}
