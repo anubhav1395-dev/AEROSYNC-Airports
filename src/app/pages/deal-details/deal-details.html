@@ -1,0 +1,17 @@
+<div class="details-container" *ngIf="dealData">
+  <div class="hero-section" [style.backgroundImage]="'url(' + dealData.image + ')'">
+    <div class="overlay">
+      <h1>{{ dealData.title }}</h1>
+      <p class="price">{{ dealData.price }}</p>
+    </div>
+  </div>
+
+  <div class="content-box">
+    <h3>Overview</h3>
+    <p>{{ dealData.desc }}</p>
+    
+    <div class="booking-card">
+      <button class="book-now-btn">Confirm Booking</button>
+    </div>
+  </div>
+</div>

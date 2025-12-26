@@ -1,1 +1,88 @@
-<p>signup works!</p>
+<div class="progress-bar-wrapper">
+  <div class="progress-fill" [style.width.%]="(currentStep / 3) * 100"></div>
+  <div class="step-pill">Step {{currentStep}} of 3</div>
+</div>
+
+<div class="signup-container">
+  <aside class="side-branding">
+    <div class="overlay"></div>
+    <div class="content">
+      <h2 class="logo">AERO<span>SYNC</span></h2>
+      <h1>The Journey <br>Starts Here.</h1>
+    </div>
+  </aside>
+
+  <main class="form-area">
+    <div class="auth-card">
+      
+      @if (currentStep === 1) {
+        <div class="step-fade">
+          <h2>Welcome</h2>
+          <p class="desc">Enter your legal name as it appears on your ID.</p>
+          <div class="field">
+            <label>First Name</label>
+            <input type="text" [(ngModel)]="userData.firstName" placeholder="e.g. Elena">
+          </div>
+          <div class="field">
+            <label>Last Name</label>
+            <input type="text" [(ngModel)]="userData.lastName" placeholder="e.g. Gilbert">
+          </div>
+          <button class="btn-main" (click)="nextStep()">Continue</button>
+        </div>
+      }
+
+      @if (currentStep === 2) {
+        <div class="step-fade">
+          <h2>Security</h2>
+          <div class="field">
+            <label>Email</label>
+            <input type="email" [(ngModel)]="userData.email" placeholder="hello@luxury.com">
+          </div>
+          <div class="field">
+            <label>Password</label>
+            <input type="password" [(ngModel)]="userData.password" placeholder="••••••••">
+          </div>
+          <div class="actions">
+            <button class="btn-back" (click)="prevStep()">Back</button>
+            <button class="btn-main" (click)="nextStep()">Next</button>
+          </div>
+        </div>
+      }
+
+      @if (currentStep === 3) {
+        <div class="step-fade">
+          <h2>Final Touch</h2>
+          <div class="field">
+            <label>Cabin Preference</label>
+            <select [(ngModel)]="userData.preference">
+              <option value="First">First Class</option>
+              <option value="Business">Business</option>
+              <option value="Economy">Economy</option>
+            </select>
+          </div>
+          <div class="actions">
+            <button class="btn-back" (click)="prevStep()">Back</button>
+            <button class="btn-main success" (click)="handleSignup()">Complete & Fly</button>
+          </div>
+        </div>
+      }
+      @if (currentStep === 4) {
+  <div class="success-overlay">
+    <div class="success-card">
+      <div class="checkmark">✓</div>
+      <h2>Welcome Aboard!</h2>
+      <p>Redirecting to your terminal...</p>
+    </div>
+  </div>
+}
+    </div>
+  </main>
+</div>
+
+<div class="confetti-container" id="confetti">
+  <div class="confetti-piece"></div>
+  <div class="confetti-piece"></div>
+  <div class="confetti-piece"></div>
+  <div class="confetti-piece"></div>
+  <div class="confetti-piece"></div>
+</div>
